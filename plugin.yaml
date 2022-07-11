@@ -1,0 +1,18 @@
+name: Commit Terraform configuration
+version: 1
+rundeckPluginVersion: 1.2
+author: Teodor Janez Podobnik
+date: 2022-07-11
+providers:
+  - name: GitCommitBash
+    service: WorkflowNodeStep
+    plugin-type: script
+    script-interpreter: /bin/bash
+    script-file: gitcommit.sh
+    script-args: ${config.commit_msg}
+    config:
+      - name: commit_msg
+        type: String
+        title: Commit message
+        description: Commit message
+        required: true
